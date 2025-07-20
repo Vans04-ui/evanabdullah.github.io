@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>cv.jatra berkah kostruksi</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <h1 class="slide-in">WELCOME!!!</h1>
+  <h2 class="slide-in">DI-CV.JATRA BERKAH KONSTRUKSI</h2>
+  <p class="fade-in">Menerima pemasangan & penjualan plavon pvc</p>
+  <img src="img/IMG-20250204-WA0006.jpg" width="200"
+
+<nav>
+  <ul>
+    <li><a href="#" onclick="tampilGambar('Backdrop')">Backdrop</a></li>
+    <li><a href="#" onclick="tampilGambar('Wall marmer')">Wall marmer</a></li>
+    <li><a href="#" onclick="tampilGambar('Vinyl')">Vinyl</a></li>
+    <li><a href="#" onclick="tampilGambar('KONTAK')">KONTAK</a></li>
+  </ul>
+</nav>
+
+<section id="gambar-Backdrop" class="gambar-konten galeri" style="display: none;">
+  <img src="/img/backdrop1.jpeg" width="300">
+  <img src="/img/backdrop2.jpeg" width="300">
+  <img src="/img/backdrop3.jpeg" width="300">
+  <img src="/img/backdrop4.jpeg" width="300">
+</section>
+
+<section id="gambar-Wall marmer" class="gambar-konten galeri" style="display: none;">
+  <img src="/img/wall marmer1.jpg" width="300">
+  <img src="/img/wallmarmer2.jpg" width="300">
+  <img src="/img/wallmarmer3.jpg" width="300">
+  <img src="/img/wallmarmer4.jpg" width="300">
+  <img src="/img/wallmarmer5.jpg" width="300">
+  <img src="/img/wallmarmer6.jpg" width="300">
+  <img src="/img/wallmarmer7.jpg" width="300">
+  <img src="/img/wallmarmer8.jpg" width="300">
+  <img src="/img/wallmarmer9.jpg" width="300">
+  <img src="/img/wall marmer10.jpg" width="300">
+</section>
+
+<section id="gambar-Vinyl" class="gambar-konten galeri" style="display: none;">
+  <img src="/img/vinyl1.jpeg" width="300">
+  <img src="/img/vinyl2.jpeg" width="300">
+</section>
+
+<section id="kontak">
+  <h2>Kontak</h2>
+  <form id="formKontak">
+    <label for="nama">Nama:</label><br>
+    <input type="text" id="nama" name="nama" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="pesan">Pesan:</label><br>
+    <textarea id="pesan" name="pesan" required></textarea><br><br>
+
+    <button type="submit">Kirim</button>
+  </form>
+
+  <p id="hasil"></p>
+</section>
+
+<p id="layanan">PEMESANAN
+
+<a href="https://wa.me/6282113439657" target="_blank">
+  <button>klik disini</button>
+</a>
+
+<footer id="kontak">
+  <p>&copy; 2025 CV. Jatra Berkah Konstruksi</p>
+  <p>Email: info@jatraberkah.co.id</p>
+</footer>
+
+<script>
+  function tampilGambar(bagian) {
+    // Sembunyikan semua gambar
+    document.querySelectorAll('.gambar-konten').forEach(div => {
+      div.style.display = 'none';
+    });
+
+    // Tampilkan gambar sesuai bagian
+    document.getElementById('gambar-' + bagian).style.display = 'block';
+}
+
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  window.onscroll = () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      if (scrollY >= sectionTop - 60) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+  };
+
+  document.getElementById("formKontak").addEventListener("submit", function(e) {
+    e.preventDefault(); // Jangan reload halaman
+
+    const nama = document.getElementById("nama").value;
+    const email = document.getElementById("email").value;
+    const pesan = document.getElementById("pesan").value;
+
+    if (nama && email && pesan) {
+      document.getElementById("hasil").innerText = "Terima kasih, " + nama + "! Pesan kamu telah terkirim.";
+      document.getElementById("formKontak").reset(); // Kosongkan form
+    } else {
+      document.getElementById("hasil").innerText = "Mohon lengkapi semua data.";
+    }
+  });
+</script>
+
+</body>
+</html>
